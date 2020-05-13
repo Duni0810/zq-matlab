@@ -75,14 +75,11 @@ id_sto_addr(2, 1) = 20;
 id_sto_addr(2, 2) = 80;
 
 % 测试部分  第一个点
-%id_tm(1)=sqrt((id_sto_addr(1, 1)-id_sta_addr(1, 1))^2 + (id_sto_addr(1, 2)-id_sta_addr(1, 2))^2) / v; %计算这个 Step 的移动时间
+id_tm(1)=sqrt((id_sto_addr(1, 1)-id_sta_addr(1, 1))^2 + (id_sto_addr(1, 2)-id_sta_addr(1, 2))^2) / v; %计算这个 Step 的移动时间
 
-%id_tm(2)=sqrt((id_sto_addr(2, 1)-id_sta_addr(2, 1))^2 + (id_sto_addr(2, 2)-id_sta_addr(2, 2))^2) / v; %计算这个 Step 的移动时间
+id_tm(2)=sqrt((id_sto_addr(2, 1)-id_sta_addr(2, 1))^2 + (id_sto_addr(2, 2)-id_sta_addr(2, 2))^2) / v; %计算这个 Step 的移动时间
 
- for i=1:19
-	id_tm(i)=sqrt((id_sto_addr(i, 1)-id_sta_addr(i, 1))^2 + (id_sto_addr(i, 2)-id_sta_addr(i, 2))^2) / v; %计算这个 Step 的移动时间
-   
- end
+ for i=0:dt:max_tm
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
