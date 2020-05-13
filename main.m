@@ -68,20 +68,55 @@ v  = 1;
 
 %xa = 10; ya = 10; xb = 30; yb = 30;
 
-id_sto_addr(1, 1) = 20;
-id_sto_addr(1, 2) = 70;
 
-id_sto_addr(2, 1) = 20;
-id_sto_addr(2, 2) = 80;
+% 测试部分
+ for i=1:19
+    j = 1;
+	id_sto_addr(i, 1) = id_sta_addr(i, 1);
+    id_sto_addr(i, 2) = id_sta_addr(i, 2);
+    j = j + 1;
+ end
+ 
+%  7  (1, 2) -> (2, 2)
+id_sto_addr(7, 1) = (2 - 1) * width + 10;
+id_sto_addr(7, 2) = 80 - (2 - 1) * width + 10;
 
-% 测试部分  第一个点
-%id_tm(1)=sqrt((id_sto_addr(1, 1)-id_sta_addr(1, 1))^2 + (id_sto_addr(1, 2)-id_sta_addr(1, 2))^2) / v; %计算这个 Step 的移动时间
+% 8   (3, 3) -> (3, 5)
+id_sto_addr(8, 1) = (5 - 1) * width + 10;
+id_sto_addr(8, 2) = 80 - (3 - 1) * width + 10;
 
-%id_tm(2)=sqrt((id_sto_addr(2, 1)-id_sta_addr(2, 1))^2 + (id_sto_addr(2, 2)-id_sta_addr(2, 2))^2) / v; %计算这个 Step 的移动时间
+% 9   (3, 6) -> (2, 6)
+id_sto_addr(9, 1) = (6 - 1) * width + 10;
+id_sto_addr(9, 2) = 80 - (2 - 1) * width + 10;
+
+% 10   (4, 3) -> (4, 4)
+id_sto_addr(10, 1) = (4 - 1) * width + 10;
+id_sto_addr(10, 2) = 80 - (4 - 1) * width + 10;
+
+% 11   (4, 4) -> (5, 4)
+id_sto_addr(11, 1) = (4 - 1) * width + 10;
+id_sto_addr(11, 2) = 80 - (5 - 1) * width + 10;
+
+% 12   (4, 5) -> (8, 5)
+id_sto_addr(12, 1) = (5 - 1) * width + 10;
+id_sto_addr(12, 2) = 80 - (8 - 1) * width + 10;
+
+% 13   (4, 6) -> (7, 6)
+id_sto_addr(13, 1) = (6 - 1) * width + 10;
+id_sto_addr(13, 2) = 80 - (7 - 1) * width + 10;
+
+% 14   (5, 6) -> (8, 6)
+id_sto_addr(14, 1) = (6 - 1) * width + 10;
+id_sto_addr(14, 2) = 80 - (8 - 1) * width + 10;
+
+% 16   (7, 3) -> (8, 1)
+id_sto_addr(16, 1) = (1 - 1) * width + 10;
+id_sto_addr(16, 2) = 80 - (8 - 1) * width + 10;
+
+
 
  for i=1:19
 	id_tm(i)=sqrt((id_sto_addr(i, 1)-id_sta_addr(i, 1))^2 + (id_sto_addr(i, 2)-id_sta_addr(i, 2))^2) / v; %计算这个 Step 的移动时间
-   
  end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -96,7 +131,7 @@ max_tm = max(id_tm);
 % id scan
  for t=0:dt:max_tm
      
-    for index = 1:2
+    for index = 1:19
         % 单点移动
         [id_cur_addr(index, 1), id_cur_addr(index, 2)] = move(index,       ...
                                                               id_sta_addr, ...
@@ -107,6 +142,7 @@ max_tm = max(id_tm);
                                                               v);
 
     end
+    pause(0.1);
 end
         
 % t = move(10, 10, 30, 30, 1, 1);

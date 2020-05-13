@@ -62,7 +62,7 @@ function [x, y] = move(id, id_sta_addr, id_sto_addr, id_cur_addr, t, id_tm, v)
         plot(x,y, symbol);
         %id_cur_addr(id, 1) = x;
         %id_cur_addr(id, 2) = y;
-        pause(0.1);
+        %pause(0.1);
 
 end
 
