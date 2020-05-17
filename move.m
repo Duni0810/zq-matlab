@@ -59,7 +59,7 @@ function [x, y] = move(id, id_sta_addr, id_sto_addr, id_cur_addr, t, id_tm, v)
     x=id_sta_addr(id,1)+v*((id_sto_addr(id,1)-id_sta_addr(id,1))/sqrt((id_sto_addr(id,1)-id_sta_addr(id,1))^2+(id_sto_addr(id,2)-id_sta_addr(id,2))^2))*t;
     y=id_sta_addr(id,2)+v*((id_sto_addr(id,2)-id_sta_addr(id,2))/sqrt((id_sto_addr(id,1)-id_sta_addr(id,1))^2+(id_sto_addr(id,2)-id_sta_addr(id,2))^2))*t;
 
-        plot(x,y, symbol);
+	plot(x,y, symbol);
         %id_cur_addr(id, 1) = x;
         %id_cur_addr(id, 2) = y;
         %pause(0.1);
